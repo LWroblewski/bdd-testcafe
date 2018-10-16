@@ -1,0 +1,19 @@
+{
+  "name": "bdd-testcafe",
+  "version": "0.0.2",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.lib.json"
+  },
+  "dependencies": {
+    "cucumber": "4.2.1",
+    "cucumber-html-reporter": "4.0.4",
+    "testcafe": "^0.20.4",
+    "testcafe-angular-selectors": "^0.3.0",
+    "base64-img": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/cucumber": "^4.0.4",
+    "@types/node": "^6.0.117",
+    "typescript": "2.7.2"
+  }
+}
