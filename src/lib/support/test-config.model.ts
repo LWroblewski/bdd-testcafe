@@ -15,5 +15,5 @@ export const defaultTestConfiguration: TestConfiguration = {
   screenshotsPath: 'reports/screenshots/',
   concurrency: 1,
   debug: false,
-  testFile: `node_modules/bdd-launcher/lib/test.js`
+  testFile: `./node_modules/bdd-testcafe/lib/test.js`
 };

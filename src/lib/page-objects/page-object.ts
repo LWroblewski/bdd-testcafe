@@ -1,20 +1,20 @@
 import { ClientFunction, Selector } from 'testcafe';
 import * as base64Img from 'base64-img';
-import { waitForAngular, AngularSelector } from 'testcafe-angular-selectors';
 import {TestCafeWorld} from '../support/world';
+import { BddSelectors } from '../config/config.model';
 
 const DELAY = 3000;
 
-export const enum ElementSelector {
-  TITLE             = 'h1.title',
-  MODAL_TITLE       = 'mat-dialog-container h1.title',
-  SELECT            = 'mat-select',
-  BUTTON_PRIMARY    = 'button.primary',
-  BUTTON_SECONDARY  = 'button.outline',
-  BUTTON_ICON       = 'button mat-icon',
-  RADIO_BUTTON      = 'mat-radio-button',
-  ERROR             = 'mat-error',
-  WARNING           = 'mat-hint.mat-warning'
+export const defaultElementSelectors: BddSelectors = {
+  title:            'h1.title',
+  modalTitle:       'mat-dialog-container h1.title',
+  select:           'mat-select',
+  buttonPrimary:    'button.primary',
+  buttonSecondary:  'button.outline',
+  buttonIcon:       'button mat-icon',
+  radioButton:      'mat-radio-button',
+  error:            'mat-error',
+  warning:          'mat-hint.mat-warning'
 }
 
 export class PageObject {
@@ -35,11 +35,11 @@ export class PageObject {
   }
 
   buttonPrimary(): Selector {
-    return this.getElement(ElementSelector.BUTTON_PRIMARY);
+    return this.getElement(this.world.selectors.buttonPrimary);
   }
 
   buttonSecondary(): Selector {
-    return this.getElement(ElementSelector.BUTTON_SECONDARY);
+    return this.getElement(this.world.selectors.buttonSecondary);
   }
 
   buttonWithLabel(label: string): Selector {
@@ -47,7 +47,7 @@ export class PageObject {
   }
 
   iconButtons(): Selector {
-    return this.getElement(ElementSelector.BUTTON_ICON);
+    return this.getElement(this.world.selectors.buttonIcon);
   }
 
   iconButtonWithLabel(label: string): SelectorPromise {
@@ -55,7 +55,7 @@ export class PageObject {
   }
 
   radioButtons(): Selector {
-    return this.getElement(ElementSelector.RADIO_BUTTON);
+    return this.getElement(this.world.selectors.radioButton);
   }
 
   radioButton(label: string) {
@@ -63,7 +63,7 @@ export class PageObject {
   }
 
   selects(): Selector {
-    return this.getElement(ElementSelector.SELECT);
+    return this.getElement(this.world.selectors.select);
   }
 
   select(label: string): SelectorPromise {
@@ -103,11 +103,11 @@ export class PageObject {
   }
 
   title(): Selector {
-    return this.getElement(ElementSelector.TITLE);
+    return this.getElement(this.world.selectors.title);
   }
 
   errors(): Selector {
-    return this.getElement(ElementSelector.ERROR);
+    return this.getElement(this.world.selectors.error);
   }
 
   error(errorText: string): Selector {
@@ -115,7 +115,7 @@ export class PageObject {
   }
 
   warnings(): Selector {
-    return this.getElement(ElementSelector.WARNING);
+    return this.getElement(this.world.selectors.warning);
   }
 
   warning(warningText: string): Selector {
@@ -191,11 +191,11 @@ export class PageObject {
   }
 
   shouldTitleExists(title: string) {
-    return this.shouldElementWithContentExists(ElementSelector.TITLE, title);
+    return this.shouldElementWithContentExists(this.world.selectors.title, title);
   }
 
   shouldModalTitleExists(modalTitle: string) {
-    return this.shouldElementWithContentExists(ElementSelector.MODAL_TITLE, modalTitle);
+    return this.shouldElementWithContentExists(this.world.selectors.modalTitle, modalTitle);
   }
 
   shouldInputExists(inputLabel: string) {
@@ -207,7 +207,7 @@ export class PageObject {
   }
 
   shouldButtonPrimaryBeEnabledOrDisabled(enabled: boolean) {
-    return this.shouldElementBeEnabledOrDisabled(ElementSelector.BUTTON_PRIMARY, enabled);
+    return this.shouldElementBeEnabledOrDisabled(this.world.selectors.buttonPrimary, enabled);
   }
 
   async shouldInputHasValue(inputId: string, value: string) {
