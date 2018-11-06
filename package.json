@@ -1,6 +1,10 @@
 {
   "name": "bdd-testcafe",
-  "version": "0.0.2",
+  "version": "0.0.1",
+  "description": "Used to launch BDD Gherkin tests using TestCafe",
+  "homepage": "https://github.com/LWroblewski/bdd-testcafe",
+  "bugs": "https://github.com/LWroblewski/bdd-testcafe/issues",
+  "license": "MIT",
   "scripts": {
     "build": "tsc -p ./tsconfig.lib.json"
   },
